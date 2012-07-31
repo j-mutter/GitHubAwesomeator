@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CF9F6B115C890EB00281585 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF9F6B015C890EB00281585 /* Cocoa.framework */; };
+		2CF9F6BB15C890EB00281585 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9F6B915C890EB00281585 /* InfoPlist.strings */; };
+		2CF9F6BD15C890EB00281585 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9F6BC15C890EB00281585 /* main.m */; };
+		2CF9F6C115C890EB00281585 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9F6BF15C890EB00281585 /* Credits.rtf */; };
+		2CF9F6C415C890EB00281585 /* JMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9F6C315C890EB00281585 /* JMAppDelegate.m */; };
+		2CF9F6C715C890EB00281585 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9F6C515C890EB00281585 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2CF9F6AC15C890EB00281585 /* GitHubAwesomeator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAwesomeator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CF9F6B015C890EB00281585 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2CF9F6B315C890EB00281585 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2CF9F6B415C890EB00281585 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2CF9F6B515C890EB00281585 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2CF9F6B815C890EB00281585 /* GitHubAwesomeator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitHubAwesomeator-Info.plist"; sourceTree = "<group>"; };
+		2CF9F6BA15C890EB00281585 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2CF9F6BC15C890EB00281585 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2CF9F6BE15C890EB00281585 /* GitHubAwesomeator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHubAwesomeator-Prefix.pch"; sourceTree = "<group>"; };
+		2CF9F6C015C890EB00281585 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2CF9F6C215C890EB00281585 /* JMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMAppDelegate.h; sourceTree = "<group>"; };
+		2CF9F6C315C890EB00281585 /* JMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMAppDelegate.m; sourceTree = "<group>"; };
+		2CF9F6C615C890EB00281585 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CF9F6A915C890EB00281585 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF9F6B115C890EB00281585 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CF9F6A115C890EB00281585 = {
+			isa = PBXGroup;
+			children = (
+				2CF9F6B615C890EB00281585 /* GitHubAwesomeator */,
+				2CF9F6AF15C890EB00281585 /* Frameworks */,
+				2CF9F6AD15C890EB00281585 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2CF9F6AD15C890EB00281585 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9F6AC15C890EB00281585 /* GitHubAwesomeator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CF9F6AF15C890EB00281585 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9F6B015C890EB00281585 /* Cocoa.framework */,
+				2CF9F6B215C890EB00281585 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CF9F6B215C890EB00281585 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9F6B315C890EB00281585 /* AppKit.framework */,
+				2CF9F6B415C890EB00281585 /* CoreData.framework */,
+				2CF9F6B515C890EB00281585 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2CF9F6B615C890EB00281585 /* GitHubAwesomeator */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9F6C215C890EB00281585 /* JMAppDelegate.h */,
+				2CF9F6C315C890EB00281585 /* JMAppDelegate.m */,
+				2CF9F6C515C890EB00281585 /* MainMenu.xib */,
+				2CF9F6B715C890EB00281585 /* Supporting Files */,
+			);
+			path = GitHubAwesomeator;
+			sourceTree = "<group>";
+		};
+		2CF9F6B715C890EB00281585 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9F6B815C890EB00281585 /* GitHubAwesomeator-Info.plist */,
+				2CF9F6B915C890EB00281585 /* InfoPlist.strings */,
+				2CF9F6BC15C890EB00281585 /* main.m */,
+				2CF9F6BE15C890EB00281585 /* GitHubAwesomeator-Prefix.pch */,
+				2CF9F6BF15C890EB00281585 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CF9F6AB15C890EB00281585 /* GitHubAwesomeator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CF9F6CA15C890EB00281585 /* Build configuration list for PBXNativeTarget "GitHubAwesomeator" */;
+			buildPhases = (
+				2CF9F6A815C890EB00281585 /* Sources */,
+				2CF9F6A915C890EB00281585 /* Frameworks */,
+				2CF9F6AA15C890EB00281585 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitHubAwesomeator;
+			productName = GitHubAwesomeator;
+			productReference = 2CF9F6AC15C890EB00281585 /* GitHubAwesomeator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2CF9F6A315C890EB00281585 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JM;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Justin Mutter";
+			};
+			buildConfigurationList = 2CF9F6A615C890EB00281585 /* Build configuration list for PBXProject "GitHubAwesomeator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2CF9F6A115C890EB00281585;
+			productRefGroup = 2CF9F6AD15C890EB00281585 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2CF9F6AB15C890EB00281585 /* GitHubAwesomeator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2CF9F6AA15C890EB00281585 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF9F6BB15C890EB00281585 /* InfoPlist.strings in Resources */,
+				2CF9F6C115C890EB00281585 /* Credits.rtf in Resources */,
+				2CF9F6C715C890EB00281585 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CF9F6A815C890EB00281585 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF9F6BD15C890EB00281585 /* main.m in Sources */,
+				2CF9F6C415C890EB00281585 /* JMAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2CF9F6B915C890EB00281585 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CF9F6BA15C890EB00281585 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2CF9F6BF15C890EB00281585 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CF9F6C015C890EB00281585 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		2CF9F6C515C890EB00281585 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CF9F6C615C890EB00281585 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CF9F6C815C890EB00281585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2CF9F6C915C890EB00281585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2CF9F6CB15C890EB00281585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitHubAwesomeator/GitHubAwesomeator-Prefix.pch";
+				INFOPLIST_FILE = "GitHubAwesomeator/GitHubAwesomeator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2CF9F6CC15C890EB00281585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitHubAwesomeator/GitHubAwesomeator-Prefix.pch";
+				INFOPLIST_FILE = "GitHubAwesomeator/GitHubAwesomeator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CF9F6A615C890EB00281585 /* Build configuration list for PBXProject "GitHubAwesomeator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF9F6C815C890EB00281585 /* Debug */,
+				2CF9F6C915C890EB00281585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CF9F6CA15C890EB00281585 /* Build configuration list for PBXNativeTarget "GitHubAwesomeator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF9F6CB15C890EB00281585 /* Debug */,
+				2CF9F6CC15C890EB00281585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2CF9F6A315C890EB00281585 /* Project object */;
+}
