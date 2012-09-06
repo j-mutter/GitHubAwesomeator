@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+    safari.application.addEventListener( "message", function( e ) {
+      if( e.name === "getSettings" ) {
+        e.target.page.dispatchMessage( "setSettings", {
+          gitfolder: safari.extension.settings.getItem( "gitfolder" ),
+          baseuri: safari.extension.baseURI 
+        } );
+      }
+    }, false );
+
+  </script>
+</head>
+<body></body>
+</html>
