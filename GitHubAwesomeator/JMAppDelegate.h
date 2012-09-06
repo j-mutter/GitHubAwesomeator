@@ -7,9 +7,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreServices/CoreServices.h>
 
-@interface JMAppDelegate : NSObject <NSApplicationDelegate>
+#import "Growl/Growl.h"
 
+#import "JMGitManager.h"
+
+
+@interface JMAppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSUserNotificationCenterDelegate> {
+    IBOutlet NSMenu *statusMenu;
+    NSStatusItem * statusItem;
+}
 @property (assign) IBOutlet NSWindow *window;
+
+@property NSString *gitLocation;
+@property NSMutableDictionary *gitRepos;
+
+- (NSDictionary *) registrationDictionaryForGrowl;
+- (void) growlNotificationWasClicked:(id)clickContext;
 
 @end
