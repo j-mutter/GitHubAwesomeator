@@ -1,0 +1,20 @@
+{
+  "name": "Github Awesomeator",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Makes PRs more awesome.",
+  "background": {
+    "page": "background.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://*.github.com/*"],
+      "js": ["GithubAwesomeator.js"],
+      "include_globs": ["*github.com/*/pull/*"]
+    }
+  ],
+  "web_accessible_resources": [
+    "download_icon_small.png"
+  ]
+}
