@@ -22,7 +22,6 @@
 	gitRepos = [[NSMutableDictionary alloc] init];
 	[self findGitRepos];
 	
-	// Insert code here to initialize your application
 	NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
 	[appleEventManager setEventHandler:self andSelector:@selector(handleGetURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 	
@@ -153,7 +152,7 @@
 	return exitStatus;
 }
 
--(void) sendNotification:(NSString *)message{
+-(void) sendNotification:(NSString *)title withDescription:(NSString *)description{
 	
 	SInt32 major, minor;
 	Gestalt(gestaltSystemVersionMajor, &major);
@@ -168,15 +167,16 @@
 	if([versionNumber isGreaterThanOrEqualTo:[NSDecimalNumber decimalNumberWithString:@"10.8"]]){
 		NSLog(@"Mountain Lion or newer - hit the Notification Center, right in the ovaries");
 		NSUserNotification *note = [[NSUserNotification alloc] init];
-		note.title = message;
+		note.title = title;
+		note.informativeText = description;
 		[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
 		
 	}else{
 		NSLog(@"Too old, fall back to Growl. /sad trombone");
 		NSDictionary *growlMessageDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
 											 @"git-alert", GROWL_NOTIFICATION_NAME,
-											 @"GitHubAwesomeator", GROWL_NOTIFICATION_TITLE,
-											 message, GROWL_NOTIFICATION_DESCRIPTION,
+											 title, GROWL_NOTIFICATION_TITLE,
+											 description, GROWL_NOTIFICATION_DESCRIPTION,
 											 @"GitHubAwesomeator", GROWL_APP_NAME,
 											 nil];
 		[GrowlApplicationBridge notifyWithDictionary:growlMessageDictionary];
@@ -210,14 +210,14 @@
 			
 		}
 		if (result == 0){
-			[self sendNotification:[NSString stringWithFormat:@"Checked out %@", branchName]];
+			[self sendNotification:@"Check out" withDescription:[NSString stringWithFormat:@"%@ checked out successfully",branchName]];
 		}else{
-			[self sendNotification:[NSString stringWithFormat:@"Branch checked out, but with issues"]];
+			[self sendNotification:@"Check out with Errors" withDescription:[NSString stringWithFormat:@"Errors checking out %@", branchName]];
 		}
 		
 	}else{
 		NSLog(@"Error checking out branch %@ \n\t%@", branchName, outputString);
-		[self sendNotification:[NSString stringWithFormat:@"Unable to check out  %@", branchName]];
+		[self sendNotification:@"Check out failed" withDescription:[NSString stringWithFormat:@"Failed to check out  %@", branchName]];
 	}
 	
 }
@@ -255,10 +255,6 @@
 		}
 		
 	}
-	
-	NSString *message = [NSString stringWithFormat:@"Found %ld git repos", [gitRepos count]];
-	
-	[self sendNotification:message];
 
 }
 
