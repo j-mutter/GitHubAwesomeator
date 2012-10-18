@@ -20,8 +20,9 @@
 }
 @property (assign) IBOutlet NSWindow *window;
 
-@property NSString *gitLocation;
-@property NSMutableDictionary *gitRepos;
+@property JMGitManager *gitManager;
+
+-(void) sendNotification:(NSString *)title withDescription:(NSString *)description;
 
 - (NSDictionary *) registrationDictionaryForGrowl;
 - (void) growlNotificationWasClicked:(id)clickContext;

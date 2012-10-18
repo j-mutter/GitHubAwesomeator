@@ -14,5 +14,11 @@
 @property NSString *gitLocation;
 @property NSMutableDictionary *gitRepos;
 
++ (JMGitManager *)sharedManager;
+
+-(void)runFullGitSuiteForRepo:(NSString *)repositoryName andBranch:(NSString *)branchName;
+-(int) runGitCommand:(NSString*) command theOutput:(NSMutableString **)output;
+-(int) runGitCommand:(NSString*) command withArguments:(NSArray*) arguments theOutput:(NSMutableString **)output;
+-(int) runGitCommand:(NSString*) command atDirectoryPath:(NSString*) path withArguments:(NSArray*) arguments theOutput:(NSMutableString **)output;
 
 @end
