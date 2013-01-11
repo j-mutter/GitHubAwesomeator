@@ -7,13 +7,14 @@
 //
 
 #import "JMGitManager.h"
-
+#import "JMGitRepoObject.h"
 #import "JMAppDelegate.h"
 
 @implementation JMGitManager
 
 @synthesize gitLocation;
 @synthesize gitRepos;
+@synthesize gitRepoArray;
 
 + (JMGitManager *)sharedManager
 {
@@ -30,8 +31,18 @@
 {
 	self = [super init];
 	if (self){
-		gitRepos = [[NSMutableDictionary alloc] init];
+		
+		gitRepos = [NSMutableDictionary dictionary];
+		gitRepoArray = [NSMutableArray array];
+		
 		if([self gitInit]){
+			// first, load up any saved repos before scanning for new ones
+			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+			NSArray *rootArray = [defaults objectForKey:@"SavedRepos"];
+			if ([rootArray count] > 0){
+				
+			}
+			
 			[self findGitRepos];
 		}else{
 			NSLog(@"Unable to locate git executable");
@@ -119,9 +130,11 @@
 			NSArray *pathComponents = [filename pathComponents];
 			NSString *repoName = [pathComponents objectAtIndex:([pathComponents count] -2)];
 			
-			NSString *fullPathToRepo = [NSHomeDirectory() stringByAppendingPathComponent:[filename stringByDeletingLastPathComponent]];
+			NSString *fullPathToRepo = [rootDirectory stringByAppendingPathComponent:[filename stringByDeletingLastPathComponent]];
 			
 			[gitRepos setObject:fullPathToRepo forKey:repoName];
+			JMGitRepoObject *foundRepo = [[JMGitRepoObject alloc] initWithRepoName:repoName Location:fullPathToRepo];
+			[self addRepoObject:foundRepo];
 			[direnum skipDescendants];
 			
 		}
@@ -138,8 +151,18 @@
 
 -(void)runFullGitSuiteForRepo:(NSString *)repositoryName andBranch:(NSString *)branchName{
 	// make sure we know where the repo is...
-	NSString *repoLocation = [gitRepos objectForKey:repositoryName];
-	NSLog(@"%@", repoLocation);
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"repoName == %@ && isEnabled == YES", repositoryName];
+	NSArray *filteredArray = [gitRepoArray filteredArrayUsingPredicate:predicate];
+	JMGitRepoObject *matchingObject = nil;
+	if ([filteredArray count] > 0){
+		matchingObject = [filteredArray objectAtIndex:0];
+	}else{
+		NSLog(@"No matching repo found");
+		[(JMAppDelegate *)[[NSApplication sharedApplication] delegate] sendNotification:@"Error" withDescription:@"No matching repo found"];
+		return;
+	}
+	
+	NSLog(@"%@", matchingObject.repoLocation);
 	
 	NSArray *commandsArray = [NSArray arrayWithObjects:@"checkout", @"submodule", @"submodule", @"pull", nil];
 	NSArray *argumentsArray = [NSArray arrayWithObjects:branchName, @"init", @"update", @"--recurse-submodules", nil];
@@ -147,12 +170,12 @@
 	NSMutableString *outputString;
 	int result = 0;
 	
-	result = [self runGitCommand:[commandsArray objectAtIndex:0] atDirectoryPath:repoLocation withArguments:[NSArray arrayWithObject:[argumentsArray objectAtIndex:0]] theOutput:&outputString];
+	result = [self runGitCommand:[commandsArray objectAtIndex:0] atDirectoryPath:matchingObject.repoLocation withArguments:[NSArray arrayWithObject:[argumentsArray objectAtIndex:0]] theOutput:&outputString];
 	
 	if (result ==0){
 		for (int i=1; i<[commandsArray count]; i++) {
 			
-			result = [self runGitCommand:[commandsArray objectAtIndex:i] atDirectoryPath:repoLocation withArguments:[NSArray arrayWithObject:[argumentsArray objectAtIndex:i]] theOutput:&outputString];
+			result = [self runGitCommand:[commandsArray objectAtIndex:i] atDirectoryPath:matchingObject.repoLocation withArguments:[NSArray arrayWithObject:[argumentsArray objectAtIndex:i]] theOutput:&outputString];
 			
 			if(result != 0){
 				NSLog(@"Error running git command: %@ %@ \n\t%@", [commandsArray objectAtIndex:i], [argumentsArray objectAtIndex:i], outputString);
@@ -224,6 +247,29 @@
 	exitStatus = [task terminationStatus];
 	
 	return exitStatus;
+}
+
+- (void) addRepoObject:(JMGitRepoObject *)newObject
+{
+	// only constraint is that the path is not already in use
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"repoLocation == %@", newObject.repoLocation];
+	NSArray *filteredArray = [gitRepoArray filteredArrayUsingPredicate:predicate];
+	if ([filteredArray count] > 0){
+		NSLog(@"Duplicate repo - not inserting");
+	}else{
+		[gitRepoArray addObject:newObject];
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		NSMutableArray *repoArray = [defaults objectForKey:@"SavedRepos"];
+		NSMutableData *data = [NSMutableData data];
+		NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+		
+		[archiver encodeObject:newObject];
+		[archiver finishEncoding];
+		
+		
+		
+		[defaults synchronize];
+	}
 }
 
 - (void) sendNotification:(NSString *)notification withDescription:(NSString *)description

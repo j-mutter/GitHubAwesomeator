@@ -11,6 +11,8 @@
 		2C35347215DA229C00F7FFCC /* icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C35347115DA229C00F7FFCC /* icons.icns */; };
 		2C35347415DA22B100F7FFCC /* icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C35347315DA22B100F7FFCC /* icons.icns */; };
 		2C8A34ED15C8A19800AB3751 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C8A34EB15C8A19800AB3751 /* MainMenu.xib */; };
+		2CA6503216319CC8002E0DCA /* JMGitRepoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6503116319CC8002E0DCA /* JMGitRepoObject.m */; };
+		2CA6505E1631E051002E0DCA /* SavedRepos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA6505D1631E051002E0DCA /* SavedRepos.plist */; };
 		2CCA87FA15C9EAFB00990C3C /* Growl Registration Ticket.growlRegDic in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA87F915C9EAFB00990C3C /* Growl Registration Ticket.growlRegDic */; };
 		2CCA87FC15C9ED3F00990C3C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCA87FB15C9ED3F00990C3C /* Growl.framework */; };
 		2CCA87FE15C9F1BE00990C3C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CCA87FB15C9ED3F00990C3C /* Growl.framework */; };
@@ -42,6 +44,9 @@
 		2C35347115DA229C00F7FFCC /* icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icons.icns; sourceTree = "<group>"; };
 		2C35347315DA22B100F7FFCC /* icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icons.icns; sourceTree = "<group>"; };
 		2C8A34EC15C8A19800AB3751 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2CA6503016319CC8002E0DCA /* JMGitRepoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMGitRepoObject.h; sourceTree = "<group>"; };
+		2CA6503116319CC8002E0DCA /* JMGitRepoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMGitRepoObject.m; sourceTree = "<group>"; };
+		2CA6505D1631E051002E0DCA /* SavedRepos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedRepos.plist; sourceTree = "<group>"; };
 		2CCA87F915C9EAFB00990C3C /* Growl Registration Ticket.growlRegDic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDic"; path = "../Growl Registration Ticket.growlRegDic"; sourceTree = "<group>"; };
 		2CCA87FB15C9ED3F00990C3C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = GitHubAwesomeator/Growl.framework; sourceTree = "<group>"; };
 		2CDBBFC615DA24E3001F2864 /* icons.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = icons.iconset; sourceTree = "<group>"; };
@@ -121,6 +126,8 @@
 				2CF9F6C315C890EB00281585 /* JMAppDelegate.m */,
 				2C27371715D378E8001A92A5 /* JMGitManager.h */,
 				2C27371815D378E8001A92A5 /* JMGitManager.m */,
+				2CA6503016319CC8002E0DCA /* JMGitRepoObject.h */,
+				2CA6503116319CC8002E0DCA /* JMGitRepoObject.m */,
 				2CF9F6B715C890EB00281585 /* Supporting Files */,
 			);
 			path = GitHubAwesomeator;
@@ -131,6 +138,7 @@
 			children = (
 				2CCA87F915C9EAFB00990C3C /* Growl Registration Ticket.growlRegDic */,
 				2CF9F6B815C890EB00281585 /* GitHubAwesomeator-Info.plist */,
+				2CA6505D1631E051002E0DCA /* SavedRepos.plist */,
 				2C8A34EB15C8A19800AB3751 /* MainMenu.xib */,
 				2CF9F6B915C890EB00281585 /* InfoPlist.strings */,
 				2CF9F6BC15C890EB00281585 /* main.m */,
@@ -201,6 +209,7 @@
 				2C35347415DA22B100F7FFCC /* icons.icns in Resources */,
 				2CDBBFC715DA24E3001F2864 /* icons.iconset in Resources */,
 				2CDBBFCA15DA2529001F2864 /* icon_16x16.png in Resources */,
+				2CA6505E1631E051002E0DCA /* SavedRepos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +223,7 @@
 				2CF9F6BD15C890EB00281585 /* main.m in Sources */,
 				2CF9F6C415C890EB00281585 /* JMAppDelegate.m in Sources */,
 				2C27371915D378E8001A92A5 /* JMGitManager.m in Sources */,
+				2CA6503216319CC8002E0DCA /* JMGitRepoObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +309,7 @@
 		2CF9F6CB15C890EB00281585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer: Justin Mutter (SY27GYUAJ3)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -310,6 +320,7 @@
 				INFOPLIST_FILE = "GitHubAwesomeator/GitHubAwesomeator-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

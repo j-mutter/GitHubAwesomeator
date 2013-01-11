@@ -14,16 +14,20 @@
 @synthesize window;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
-{
+{	
 	[JMGitManager sharedManager];
 	
 	NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
 	[appleEventManager setEventHandler:self andSelector:@selector(handleGetURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 	
-	[GrowlApplicationBridge setGrowlDelegate:self];
-	
 }
 
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{	
+
+	self.repos = [JMGitManager sharedManager].gitRepoArray;
+	[GrowlApplicationBridge setGrowlDelegate:self];
+}
 
 - (void)handleGetURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
 {

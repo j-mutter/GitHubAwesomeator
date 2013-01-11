@@ -1,3 +1,4 @@
 Release/
-GitHubAwesomeator.xcodeproj/project.xcworkspace/xcuserdata/
-GitHubAwesomeator.xcodeproj/xcuserdata/
+GitHubAwesomeator.xcodeproj/project.xcworkspace/xcuserdata/*
+GitHubAwesomeator.xcodeproj/xcuserdata/*
+GitHubAwesomeator.xcodeproj/xcuserdata/jmutter.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist

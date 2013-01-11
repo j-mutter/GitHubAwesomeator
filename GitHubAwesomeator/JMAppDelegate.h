@@ -18,11 +18,13 @@
     IBOutlet NSMenu *statusMenu;
     NSStatusItem * statusItem;
 }
+
+@property (strong) NSArray *repos;
 @property (assign) IBOutlet NSWindow *window;
 
 @property JMGitManager *gitManager;
 
--(void) sendNotification:(NSString *)title withDescription:(NSString *)description;
+- (void) sendNotification:(NSString *)title withDescription:(NSString *)description;
 
 - (NSDictionary *) registrationDictionaryForGrowl;
 - (void) growlNotificationWasClicked:(id)clickContext;

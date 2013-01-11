@@ -13,6 +13,7 @@
 
 @property NSString *gitLocation;
 @property NSMutableDictionary *gitRepos;
+@property NSMutableArray *gitRepoArray;
 
 + (JMGitManager *)sharedManager;
 
